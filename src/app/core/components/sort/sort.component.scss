@@ -1,0 +1,17 @@
+.header__sorts {
+  display: flex;
+  align-items: center;
+  p {
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+  }
+  .sort__link {
+    color: #2f80ed;
+    cursor: pointer;
+    margin: 5px;
+  }
+  .sort__link_underline {
+    text-decoration-line: underline;
+  }
+}

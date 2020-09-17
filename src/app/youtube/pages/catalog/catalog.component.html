@@ -1,0 +1,12 @@
+<main>
+  <h3 *ngIf="(customItems$ | async).length">Custom Items</h3>
+
+  <div class="items" *ngIf="customItems$ | async as customItems">
+    <app-card [searchItem]="item" *ngFor="let item of customItems"></app-card>
+  </div>
+  <h3 *ngIf="(searchItems$ | async).length">Youtube Items</h3>
+
+  <div class="items" *ngIf="searchItems$ | async as searchItems">
+    <app-card [searchItem]="item" *ngFor="let item of searchItems"></app-card>
+  </div>
+</main>

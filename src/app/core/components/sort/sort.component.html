@@ -1,0 +1,36 @@
+<div *ngIf="sort$ | async as sort" class="header__sorts">
+  <p>Sorting by:</p>
+
+  <mat-icon
+    *ngIf="getIcon(sort, 'date') as icon"
+    aria-hidden="false"
+    aria-label="Example home icon"
+  >
+    {{ icon }}</mat-icon
+  >
+  <span class="sort__link sort__link_underline" (click)="onSort(sort, 'date')">date</span>
+  <mat-icon
+    *ngIf="getIcon(sort, 'views') as icon"
+    aria-hidden="false"
+    aria-label="Example home icon"
+  >
+    {{ icon }}</mat-icon
+  >
+  <span class="sort__link sort__link_underline" (click)="onSort(sort, 'views')"
+    >count of views</span
+  >
+  <span class="sort__link" (click)="onSortByWord(sort)">word or sentence</span>
+  <mat-form-field>
+    <input matInput [formControl]="sortWordControl" color="primary" />
+    <button
+      mat-button
+      *ngIf="sortWordControl.value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="sortWordControl.setValue('')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

@@ -1,0 +1,49 @@
+<div class="detail">
+  <button mat-raised-button color="primary" type="button" (click)="onClickBack()">
+    Back
+  </button>
+  <div class="detail__card" *ngIf="searchItem$ | async as searchItem">
+    <img [src]="searchItem.snippet.thumbnails.medium.url" alt="" />
+    <div class="detail__info-wrapper">
+      <div class="detail__info">
+        <div>
+          <h2>{{ searchItem.snippet.title }}</h2>
+          <p>{{ searchItem.snippet.publishedAt | date: 'fullDate' }}</p>
+        </div>
+        <p>
+          Description :
+          {{ searchItem.snippet.description }}
+        </p>
+        <div>
+          <div class="card__statistics" *ngIf="searchItem.statistics">
+            <div class="card__statistics-item">
+              <mat-icon aria-hidden="false" aria-label="Eye icon">remove_red_eye</mat-icon>
+              {{ searchItem.statistics.viewCount }}
+            </div>
+
+            <div class="card__statistics-item">
+              <mat-icon aria-hidden="false" aria-label="Thumb up icon">thumb_up</mat-icon>
+              {{ searchItem.statistics.likeCount }}
+            </div>
+
+            <div class="card__statistics-item">
+              <mat-icon aria-hidden="false" aria-label="Thumb down icon">thumb_down</mat-icon>
+              {{ searchItem.statistics.dislikeCount }}
+            </div>
+
+            <div class="card__statistics-item">
+              <mat-icon aria-hidden="false" aria-label="Favorite icon">favorite</mat-icon>
+              {{ searchItem.statistics.favoriteCount }}
+            </div>
+
+            <div class="card__statistics-item">
+              <mat-icon aria-hidden="false" aria-label="Comment icon">comment</mat-icon>
+              {{ searchItem.statistics.commentCount }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card__date-color" [appDate]="getDiffDays(searchItem)"></div>
+    </div>
+  </div>
+</div>

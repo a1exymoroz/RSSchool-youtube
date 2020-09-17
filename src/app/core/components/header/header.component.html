@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="header__form" *ngIf="isShowSearchSort | async">
+    <app-search></app-search>
+    <app-sort></app-sort>
+  </div>
+  <div class="header__user">
+    <h3>{{ user$ | async }}</h3>
+    <button
+      *ngIf="(user$ | async).length"
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="onClickLogout()"
+    >
+      logout
+    </button>
+  </div>
+</div>

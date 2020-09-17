@@ -1,0 +1,69 @@
+<div class="button__back-main">
+  <button mat-raised-button color="primary" type="button" (click)="onClickMain()">
+    main
+  </button>
+</div>
+
+<form [formGroup]="adminForm" (ngSubmit)="onSubmit($event)">
+  <h3>Create new card</h3>
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" color="primary" />
+    <button
+      mat-button
+      *ngIf="adminForm.controls['title'].value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="clearInput('title')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" color="primary" />
+    <button
+      mat-button
+      *ngIf="adminForm.controls['description'].value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="clearInput('description')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Img</mat-label>
+    <input matInput formControlName="img" color="primary" />
+    <button
+      mat-button
+      *ngIf="adminForm.controls['img'].value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="clearInput('img')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Link video</mat-label>
+    <input matInput formControlName="link" color="primary" />
+    <button
+      mat-button
+      *ngIf="adminForm.controls['link'].value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="clearInput('link')"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button [disabled]="isDisabled()" mat-raised-button color="primary" type="submit">
+    Create card
+  </button>
+</form>
